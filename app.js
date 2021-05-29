@@ -12,6 +12,7 @@ app.use(express.urlencoded());
 app.set("view engine", "hbs");
 
 const con = mysql.createConnection({
+  connectionLimit : 10,
   host:"localhost",
   user:"root",
   port: 3306,
@@ -54,21 +55,21 @@ app.get('/student_registration', function (req, res) {
 });
 
 app.get('/books/available_books', function(req, res){
-  con.connect(function(err){
-    if (err) throw err;
-    con.query(`select * from available_books;`, function(err, result){
+  con.on('error', function(err) {
+    console.log("[mysql error]",err);
+  });
+  con.query(`select * from available_books;`, function(err, result){
 
-      let r = JSON.stringify(result);
-      console.log(r);
-      for(let i=0;i<4;i++){
-        console.log(r[i]);
-      }
-      var renderDocs = {
-        re : r,
-      }
-      res.render("available_books.hbs", renderDocs);
-      console.log('over');
-    });
+    let r = JSON.stringify(result);
+    console.log(r);
+    for(let i=0;i<4;i++){
+      console.log(r[i]);
+    }
+    var renderDocs = {
+      re : r,
+    }
+    res.render("available_books.hbs", renderDocs);
+    console.log('over');
   });
 });
 
@@ -88,7 +89,7 @@ app.post('/student_registration', function (req,res) {
     con.connect(function(err) {
       if (err) throw err;
       console.log("Connected!");
-      con.query(`INSERT INTO student_registration VALUES ('${username}', '${email}', '${password}');commit;`, function (err, result) {
+      con.query(`INSERT INTO student_registration(user_name, user_email, user_password) VALUES ('${username}', '${email}', '${password}');commit;`, function (err, result) {
         if (err) throw err;
         console.log("values inserted");
       });
@@ -110,7 +111,7 @@ app.post('/admin_registration', function (req,res) {
     con.connect(function(err) {
       if (err) throw err;
       console.log("Connected!");
-      con.query(`INSERT INTO admin_registration VALUES ('${adminname}', '${email}', '${password}');commit;`, function (err, result) {
+      con.query(`INSERT INTO admin_registration(admin_name, admin_email, admin_passwords) VALUES ('${adminname}', '${email}', '${password}');commit;`, function (err, result) {
         if (err) throw err;
         console.log("values inserted");
       });
@@ -143,13 +144,10 @@ app.post('/add_book', function(req, res){
   let author_name = req.body.author_name;
   let price = req.body.price;
   let quantity = req.body.quantity;
-  con.connect(function(err){
+  con.query(`INSERT INTO available_books VALUES (${isbn}, '${book_title}', '${catogary}','${author_name}', ${price}, ${quantity});COMMIT;`, function(err, result){
     if (err) throw err;
-    con.query(`INSERT INTO available_books VALUES (${isbn}, '${book_title}', '${catogary}','${author_name}', ${price}, ${quantity});COMMIT;`, function(err, result){
-      if (err) throw err;
-      console.log('successfully inserted');
-      res.redirect('/books/return_books')
-    });
+    console.log('successfully inserted');
+    res.redirect('/books/return_books')
   });
 });
 

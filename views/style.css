@@ -138,6 +138,9 @@ nav li{
     line-height: 80px;
     
 }
+nav li a{
+    text-decoration: none;
+}
 .logo{
     float: left;
     width: 150px;
@@ -239,4 +242,7 @@ tbody tr:nth-child(odd){
 }
 #return_add_books{ 
     display: flex;
+}
+*{
+    font-family: 'Rubik', sans-serif;
 }

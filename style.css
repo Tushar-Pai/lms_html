@@ -216,3 +216,9 @@ button{
 #scroll_top:hover{
     background-color: #ee6b37;
 }
+#looks{
+    height: 20vh;
+    width: 100%;
+    background-color: blue;
+    position: relative;
+}
