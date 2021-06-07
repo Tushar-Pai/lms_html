@@ -21,9 +21,13 @@ nav {
 }
 .active{
     text-decoration: underline;
-    text-decoration-color: #7868e6;
+    text-decoration-color: black;
+    color: black;
 }
-
+.active:hover{
+    text-decoration: none;
+    color: #7868e6;
+}
 
 #registration img {
     height: 75%;
