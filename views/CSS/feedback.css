@@ -33,7 +33,11 @@ nav{
     color: #7868e6;
 }
 
-
+.navbar-brand{
+    font-weight: 500;
+    font-size: larger;
+    letter-spacing: 2px;
+}
 #feedback img {
     height: 75%;
     width: 75%;
