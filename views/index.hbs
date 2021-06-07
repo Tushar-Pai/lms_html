@@ -2,84 +2,116 @@
 <html lang="en">
 
 <head>
-    <script src="https://kit.fontawesome.com/0ea2c80901.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <!-- Google Fonts link -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700
+        ;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,
+        300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+
+    <!--  Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
     <title>Library Management System</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Custom StyleSheets -->
+    <link rel="stylesheet" href="./CSS/index.css">
+
 </head>
 
 <body>
-    <div class="wrapper">
-        <header>
-            <div class="full_nav">
-                <div class="logo">
-                    <img src="images/logo.png" alt="">
-                </div>
-                <div class="navbar">
-                    <nav>
-                        <ul>
-                            <li>
-                                <span class="glyphicon glyphicon-home"></span><a href="/" class="active">HOME</a>
+
+    <header>
+
+        <div class="container-nav">
+
+            <nav class="navbar navbar-expand-lg ">
+                <div class="container-fluid">
+                    <a class="navbar-brand nav-link" href="/"><i class="fas fa-book-reader fa-2x"></i></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"> <i class="fa fa-bars" aria-hidden="true"
+                                style="color:#7868e6"></i></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
-                            <li>
-                                <a href="/books"><span class="glyphicon glyphicon-book"></span>BOOKS</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/books">Books</a>
                             </li>
-                            <li>
-                                <a href="/student_login"><span class="glyphicon glyphicon-user"></span>USER_LOGIN</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/student_login">User Login</a>
                             </li>
-                            <li>
-                                <a href="/admin_login"><span class="glyphicon glyphicon-user"></span>ADMIN_LOGIN</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin_login">Admin Login</a>
                             </li>
-                            <li>
-                                <a href="/feedback"><span class="glyphicon glyphicon-envelope"></span>FEEDBACK</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/feedback">Feedback</a>
                             </li>
+
                         </ul>
-                    </nav>
+
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+
+    </header>
+
+    <section id="greeting">
+
+        <div class="container-nav">
+            <div class="row">
+                <div class="col-lg-6 greeting-img">
+                    <img src="./img/index_logo.svg" alt="books image">
+                </div>
+
+                <div class="col-lg-6">
+                    <div>
+                        <h1>Welcome to library</h1>
+                        <h5>Opens at 10:00am <br><br> Closes at 8:00pm </h5>
+                    </div>
                 </div>
             </div>
-        </header>
-        <section>
-            <br><br><br><br>
-            <div class="box" id="box">
-                <br><br><br><br><br><br>
-                <h1 style="text-align: center;font-size: 55px;letter-spacing: 2px;">Welcome to Library</h1>
-                <br><br><br><br>
-                <h1 style="text-align: center;font-size: 30px;color:  rgb(17, 170, 221);">Opens at 09:00</h1><br><br>
-                <h1 style="text-align: center;font-size: 30px;color:rgb(17, 170, 221);">Closes at 16:00</h1>
-            </div>
-            <a href="/" id="scroll_top">
-                <span class="glyphicon glyphicon-arrow-up"></span>
-            </a>
-        </section>
-        <footer>
-            <br>
-            <p style="text-align: center;"><a href="index.html" style="color: white;"><span
-                        class="glyphicon glyphicon-arrow-up" style="color: rgb(124, 191, 223);"></span> Back to top</a>
-            </p>
-            <p>
-                &nbsp&nbsp&nbsp<span class="glyphicon glyphicon-link" style="color: rgb(124, 191, 223);"></span> <a
-                    href="" style="color: white;text-decoration: none;">facebook</a><br>
-                &nbsp&nbsp&nbsp<span class="glyphicon glyphicon-link" style="color: rgb(124, 191, 223);"></span> <a
-                    href="" style="color: white;text-decoration: none;">instagram</a><br>
-                &nbsp&nbsp&nbsp<span class="glyphicon glyphicon-link" style="color: rgb(124, 191, 223);"></span> <a
-                    href="" style="color: white;text-decoration: none;">twitter</a>
-            </p>
-            <p style="text-align: center;color: white;font-size: 11px;">PrivacyPolicies.com © 2002 - 2021 All rights
-                reserved</p>
-        </footer>
-    </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- Bootstrap JS bundle-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
+
+
+
+{{!-- font-family: 'Roboto', sans-serif;
+font-family: 'Ubuntu', sans-serif; --}}

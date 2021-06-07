@@ -122,7 +122,7 @@ app.post('/student_login', function (req, res) {
     let r = JSON.parse(JSON.stringify(result));
     console.log(r);
     if (r[0].user_password == password) {
-      res.redirect('/student_login');
+      res.redirect('/books');
     }
   });
 
