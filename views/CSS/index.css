@@ -22,7 +22,10 @@ nav{
     color: #b8b5ff;
     
 }
-
+.active{
+    text-decoration: underline;
+    text-decoration-color: #7868e6;
+}
 #greeting img{
  
     height: 75%;
