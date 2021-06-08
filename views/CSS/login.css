@@ -21,14 +21,18 @@ nav {
 }
 
 .active{
-    text-decoration: underline;
-    text-decoration-color: black;
+    text-decoration: none;
     color: black;
 }
 
 .active:hover{
     text-decoration: none;
     color: #7868e6;
+}
+.navbar-brand{
+    font-weight: 500;
+    font-size: larger;
+    letter-spacing: 2px;
 }
 
 #login img {

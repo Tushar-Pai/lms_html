@@ -22,9 +22,13 @@ nav{
     color: #b8b5ff;
     
 }
+.navbar-brand{
+    font-weight: 500;
+    font-size: larger;
+    letter-spacing: 2px;
+}
 .active{
-    text-decoration: underline;
-    text-decoration-color: black;
+    text-decoration: none;
     color: black;
 }
 
