@@ -26,6 +26,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Feedback</title>
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
 
     <!-- Our custom stylesheet -->
     <link rel="stylesheet" href="./CSS/feedback.css">
@@ -125,7 +126,7 @@
 
                     <h4>Feedback Form</h4>
 
-                    <form action="/feedback" method="POST" >
+                    <form action="/feedback" method="POST">
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -142,7 +143,7 @@
                         <div class="mb-3">
                             <label for="exampleInputName1" class="form-label">Feedback</label>
                             <input type="text" name="feedback" class="form-control" id="exampleInputName1"
-                                aria-describedby="nameHelp">
+                                aria-describedby="nameHelp" autocomplete="off">
                         </div>
 
 
@@ -191,7 +192,7 @@
             reserved</p>
     </footer> --}}
 
-    
+
     <!-- Bootstrap JS bundle-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
