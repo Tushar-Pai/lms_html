@@ -1,67 +1,66 @@
-
-body{
+body {
     background-color: #e4fbff;
-  
 }
 
-nav{
+nav {
     letter-spacing: 1.5px;
     font-family: 'Ubuntu', sans-serif;
 }
 
-.container-nav{
+.container-nav {
     margin: 5% 7%;
-    
 }
-.nav-link{
+
+.nav-link {
     color: #7868e6;
     font-size: larger;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: #b8b5ff;
-    
 }
-.navbar-brand{
+
+.navbar-brand {
     font-weight: 500;
     font-size: larger;
     letter-spacing: 2px;
 }
-.active{
+
+.active {
     text-decoration: none;
     color: black;
 }
 
-.active:hover{
+.active:hover {
     text-decoration: none;
     color: #7868e6;
 }
-#greeting img{
- 
+
+#greeting img {
     height: 75%;
     width: 75%;
 }
 
-.row{
+.row {
     margin-top: 10%;
 }
 
-
-#greeting h1{
+#greeting h1 {
     color: #7868e6;
-
 }
 
-#greeting h5{
-    
+#greeting h5 {
     color: black;
     margin-top: 6%;
     margin-left: 13%;
-    
 }
 
- ::-webkit-scrollbar{
+::-webkit-scrollbar {
     background-color: #e4fbff;
+}
+
+.footer-bg {
+    background-color: #7868e6;
 }
 
 /* 
@@ -69,7 +68,6 @@ nav{
 #00fff5
 #00adb5
 #393e46 */
-
 
 /* 
 #161616
