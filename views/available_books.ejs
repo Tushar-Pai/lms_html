@@ -67,6 +67,29 @@
                     </tr>
                 </thead>
                 <tbody id="tableData">
+
+                    <% for(let i=0; i<booksData.length ; i++) {%>
+                        <tr>
+                            <td>
+                                <%= booksData[i].isbn %>
+                            </td>
+                            <td>
+                                <%= booksData[i].book_title %>
+                            </td>
+                            <td>
+                                <%= booksData[i].category %>
+                            </td>
+                            <td>
+                                <%= booksData[i].author_name %>
+                            </td>
+                            <td>
+                                <%= booksData[i].price %>
+                            </td>
+                            <td>
+                                <%= booksData[i].quantity %>
+                            </td>
+                        </tr>
+                        <% } %>
                 </tbody>
             </table>
             <a href="#" id="scroll_top">
@@ -90,27 +113,7 @@
                 reserved</p>
         </footer>
     </div>
-    <script>
-        const tableData = document.getElementById('tableData');
-        let htmlToLoad = ``;
-        let vasa = {{{ re }}};
-        window.onload = () => {
-            getinfo(vasa);
-        };
-        function getinfo(books_d) {
-            for (let info of books_d) {
-                htmlToLoad += `<tr>
-                        <td>${info.isbn}</td>
-                        <td>${info.book_title}</td>
-                        <td>${info.category}</td>
-                        <td>${info.author_name}</td>
-                        <td>${info.price}</td>
-                        <td>${info.quantity}</td>
-                    </tr>`;
-            }
-            tableData.innerHTML = htmlToLoad;
-        }
-    </script>
+
 </body>
 
 </html>

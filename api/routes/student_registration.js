@@ -8,7 +8,7 @@ const saltRounds = 10;
 
 
 router.get('/', function (req, res) {
-  res.render("student_registration.hbs");
+  res.render("student_registration");
 });
 
 

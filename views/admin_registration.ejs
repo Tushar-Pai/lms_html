@@ -25,7 +25,7 @@
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>Student Registration</title>
+    <title>Admin Registration</title>
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
 
     <!-- Our custom stylesheet -->
@@ -34,14 +34,13 @@
 
 <body>
 
-
     <header>
 
         <div class="container-nav">
 
             <nav class="navbar navbar-expand-lg ">
                 <div class="container-fluid">
-                    <a class="navbar-brand nav-link" href="/"><i class="fas fa-book-reader fa-2x"></i>BMSCE Library</a>
+                    <a class="navbar-brand nav-link" href="/"><i class="fas fa-book-reader fa-2x"></i> BMSCE Library</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -57,10 +56,10 @@
                                 <a class="nav-link" href="/books">Books</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/student_login">User Login</a>
+                                <a class="nav-link" href="/admin_login">Admin Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="/student_registration">User Registration</a>
+                                <a class="nav-link active" href="/admin_registration">Admin Registration</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/feedback">Feedback</a>
@@ -76,22 +75,24 @@
 
     </header>
 
+
+
     <section id="registration">
         <div class="container-nav">
 
             <div class="row">
 
                 <div class="col-lg-6">
-                    <img src="./img/student_regestration_logo.svg">
+                    <img src="./img/admin_registration_logo.svg">
                 </div>
                 <div class="col-lg-6">
 
-                    <h4>User Registration Form</h4>
+                    <h4>Admin Registration Form</h4>
 
-                    <form action="/student_registration" method="POST" id="contact">
+                    <form name="admin_registration" action="/admin_registration" method="POST">
                         <div class="mb-3">
                             <label for="exampleInputName1" class="form-label anim-down">Name</label>
-                            <input type="text" name="username" class="form-control anim-down" id="exampleInputName1"
+                            <input type="text" name="adminname" class="form-control anim-down" id="exampleInputName1"
                                 aria-describedby="nameHelp">
                         </div>
                         <div class="mb-3">
@@ -103,12 +104,14 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label anim-up">Password</label>
+                            <label for="exampleInputPassword1" class="form-label anim-up" id="namePass">Password</label>
                             <input type="password" name="password" class="form-control anim-up"
                                 id="exampleInputPassword1">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleReInputPassword1" class="form-label anim-up">Enter Password Again</label>
+                            <label for="exampleReInputPassword1" class="form-label anim-up" id="nameRePass">Enter
+                                Password
+                                Again</label>
                             <input type="password" name="password" class="form-control anim-up"
                                 id="exampleReInputPassword1">
                         </div>
@@ -117,15 +120,14 @@
                     </form>
 
                     <p id="login">
-                        Already registered?<br> <a href="/student_login">Click here</a> to login.
+                        Already registered?<br> <a href="/admin_login">Click here</a> to login.
 
                     </p>
                 </div>
             </div>
         </div>
     </section>
-
-    {{!-- <footer>
+    <!-- <footer>
         <br>
         <p style="text-align: center;"><a href="index.html" style="color: white;"><span
                     class="glyphicon glyphicon-arrow-up" style="color: rgb(124, 191, 223);"></span> Back to top</a>
@@ -140,13 +142,13 @@
         </p>
         <p style="text-align: center;color: white;font-size: 11px;">PrivacyPolicies.com © 2002 - 2021 All rights
             reserved</p>
-    </footer> --}}
+    </footer> -->
 
     <script>
         { { msg2 } }
         function check() {
             alert('registration successful');
-            window.location = "/student_login";
+            window.location = "/admin_login";
         }
     </script>
 

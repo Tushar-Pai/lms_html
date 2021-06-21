@@ -8,7 +8,7 @@ const router = express.Router();
 
 
 router.get('/', function (req, res) {
-  res.render('admin_login.hbs');
+  res.render('admin_login');
 });
 
 router.post('/', function (req, res) {

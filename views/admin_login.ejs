@@ -25,16 +25,14 @@
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>Student Login</title>
+    <title>Admin Login</title>
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
 
     <!-- Our custom stylesheet -->
     <link rel="stylesheet" href="./CSS/login.css">
-
 </head>
 
 <body>
-
 
     <header>
 
@@ -58,10 +56,10 @@
                                 <a class="nav-link" href="/books">Books</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="/student_login">User Login</a>
+                                <a class="nav-link" href="/student_login">User Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/admin_login">Admin Login</a>
+                                <a class="nav-link active" href="/admin_login">Admin Login</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/feedback">Feedback</a>
@@ -84,13 +82,13 @@
             <div class="row">
 
                 <div class="col-lg-6">
-                    <img src="./img/student_login_logo.svg" alt="">
+                    <img src="./img/admin_login_logo.svg" alt="">
                 </div>
                 <div class="col-lg-6">
 
-                    <h4>User Login Form</h4>
+                    <h4>Admin Login Form</h4>
 
-                    <form name="student_login" action="/student_login" method="POST">
+                    <form name="admin_login" action="/admin_login" method="POST">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label" id="labelEmail">Email address</label>
                             <input type="email" name="email" class="form-control" id="exampleInputEmail1"
@@ -107,10 +105,9 @@
                     </form>
 
                     <p id="signup">
-                        New to this website?<br> <a href="/student_registration">Click here</a> to sign up.
+                        New to this website?<br> <a href="/admin_registration">Click here</a> to sign up.
 
                     </p>
-
 
                 </div>
 
@@ -123,7 +120,7 @@
     </section>
 
 
-    {{!-- <footer>
+    <!-- <footer>
         <br>
         <p style="text-align: center;"><a href="index.html" style="color: white;"><span
                     class="glyphicon glyphicon-arrow-up" style="color: rgb(124, 191, 223);"></span> Back to top</a>
@@ -138,9 +135,7 @@
         </p>
         <p style="text-align: center;color: white;font-size: 11px;">PrivacyPolicies.com © 2002 - 2021 All rights
             reserved</p>
-    </footer> --}}
-    </div>
-
+    </footer> -->
 
 
     <!-- GSAP CDN -->
@@ -153,6 +148,7 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
     <script src="./js/login_gsap.js"></script>
+
 </body>
 
 </html>

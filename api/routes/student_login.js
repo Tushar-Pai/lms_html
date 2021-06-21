@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 router.get('/', function (req, res) {
-  res.render('student_login.hbs');
+  res.render('student_login');
 });
 
 

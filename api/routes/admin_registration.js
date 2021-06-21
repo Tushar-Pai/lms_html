@@ -6,7 +6,7 @@ const saltRounds = 10;
 
 
 router.get('/', function (req, res) {
-  res.render('admin_registration.hbs');
+  res.render('admin_registration');
 });
 
 
