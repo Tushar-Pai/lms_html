@@ -1,5 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
+const nodemailer = require("nodemailer");
 const { body, validationResult } = require('express-validator');
 const con = require("../../database/db");
 
@@ -68,6 +69,37 @@ router.post('/', [
       });
     }
 
+
+    const content = `<h5>Welcome to the library </h5> 
+    <p>Thank you for registering. We hope you will have a great time. </p>
+          `;
+
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      service: "hotmail",
+
+      auth: {
+        user: 'librarymanagementbmsce@outlook.com', // generated ethereal user
+        pass: 'libraryBMSCE@2021', // generated ethereal password
+      },
+
+    });
+
+    // send mail with defined transport object
+    let mailOptions = {
+      from: '"Library Mail" <librarymanagementbmsce@outlook.com>', // sender address
+      to: req.body.email, // list of receivers
+      subject: "Welcome to the library", // Subject line
+      text: "Hello world?", // plain text body
+      html: content, // html body
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return console.log(error);
+      }
+      console.log('Message sent: %s', info.messageId);
+    });
 
 
   });
