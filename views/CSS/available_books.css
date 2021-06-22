@@ -9,6 +9,15 @@ nav {
 
 .container-nav {
     margin: 5% 7%;
+    margin-bottom: 2%;
+}
+
+.container-nav-form {
+    margin: 1% 7%;
+}
+
+.container-nav-cards {
+    margin: 1% 7%;
 }
 
 .nav-link {
@@ -36,6 +45,11 @@ nav {
     color: #7868e6;
 }
 
+#category-form h3 {
+    text-align: center;
+    margin-bottom: 2%;
+}
+
 .card-header {
     background-color: #7868e6;
     color: white;
@@ -52,4 +66,23 @@ nav {
 .row {
     padding-top: calc(var(--bs-gutter-x)/ 2);
     padding-bottom: calc(var(--bs-gutter-x)/ 2);
+}
+
+.btn {
+    font-size: large;
+    font-weight: 500;
+    color: white;
+}
+
+.btn-color {
+    background-color: #7868e6;
+    margin-top: 1%;
+}
+
+.btn-color:hover {
+    background-color: #b8b5ff;
+}
+
+::-webkit-scrollbar {
+    background-color: #e4fbff;
 }
