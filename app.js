@@ -8,6 +8,7 @@ const staticPath = path.join(__dirname, '/views');
 const homeRoute = require('./api/routes/home');
 const feedbackRoute = require('./api/routes/feedback');
 const booksRoute = require('./api/routes/books');
+const availableBooksRoute = require('./api/routes/available_books');
 const adminLoginRoute = require('./api/routes/admin_login');
 const adminRegistrationRoute = require('./api/routes/admin_registration');
 const stdentLoginRoute = require('./api/routes/student_login');
@@ -29,7 +30,7 @@ app.use('/admin_login', adminLoginRoute);
 app.use('/admin_registration', adminRegistrationRoute);
 app.use('/student_login', stdentLoginRoute);
 app.use('/student_registration', studentRegistrationRoute);
-
+app.use('/available_books', availableBooksRoute);
 
 
 app.get('*', function (req, res) {
