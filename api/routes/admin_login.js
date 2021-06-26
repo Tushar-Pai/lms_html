@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const con = require("../../database/db");
 const { body, validationResult } = require('express-validator');
+const fs = require('fs');
 const router = express.Router();
 
 
@@ -43,7 +44,9 @@ router.post('/',
 
         bcrypt.compare(password, r[0].admin_password, function (err, result) {
           if (result === true) {
-            res.redirect('/books');
+            var data = JSON.stringify(r[0])
+            fs.writeFileSync("views\\config\\user-data.json", data)
+            res.redirect('/available_books');
           } else {
             res.render('admin_login', { msg: "Login failed. Invalid password or email" });
           }
