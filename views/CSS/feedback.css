@@ -1,49 +1,46 @@
-
-body{
+body {
     background-color: #e4fbff;
-  
 }
 
-nav{
+nav {
     letter-spacing: 1.5px;
     font-family: 'Ubuntu', sans-serif;
 }
 
-.container-nav{
+.container-nav {
     margin: 5% 7%;
-    
 }
-.nav-link{
+
+.nav-link {
     color: #7868e6;
     font-size: larger;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: #b8b5ff;
-    
 }
-.active{
+
+.active {
     text-decoration: none;
     color: black;
 }
 
-.active:hover{
+.active:hover {
     text-decoration: none;
     color: #7868e6;
 }
 
-.navbar-brand{
+.navbar-brand {
     font-weight: 500;
     font-size: larger;
     letter-spacing: 2px;
 }
+
 #feedback img {
     height: 75%;
     width: 75%;
     margin-top: 10%;
-    
 }
-
 
 #feedback h4 {
     color: black;
@@ -58,6 +55,7 @@ nav{
 
 .btn-color {
     background-color: #7868e6;
+    color: white;
     margin-top: 3%;
 }
 
@@ -65,7 +63,6 @@ nav{
     background-color: #b8b5ff;
 }
 
-
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     background-color: #e4fbff;
 }

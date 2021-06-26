@@ -53,7 +53,7 @@ router.post('/', [
       let adminname = req.body.adminname;
       let email = req.body.email;
       let password = req.body.password;
-      console.log("Password is " + password);
+
 
       bcrypt.hash(password, saltRounds, function (err, hash) {
         // Store hash in your password DB.

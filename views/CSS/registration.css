@@ -19,16 +19,19 @@ nav {
 .nav-link:hover {
     color: #b8b5ff;
 }
-.navbar-brand{
+
+.navbar-brand {
     font-weight: 500;
     font-size: larger;
     letter-spacing: 2px;
 }
-.active{
+
+.active {
     text-decoration: none;
     color: black;
 }
-.active:hover{
+
+.active:hover {
     text-decoration: none;
     color: #7868e6;
 }
@@ -37,9 +40,7 @@ nav {
     height: 75%;
     width: 75%;
     margin-top: 4%;
-    
 }
-
 
 #registration h4 {
     color: black;
@@ -57,7 +58,6 @@ nav {
     font-size: large;
 }
 
-
 .btn {
     font-size: large;
     font-weight: 500;
@@ -66,15 +66,13 @@ nav {
 .btn-color {
     background-color: #7868e6;
     margin-top: 3%;
+    color: white;
 }
 
 .btn-color:hover {
     background-color: #b8b5ff;
 }
 
-
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     background-color: #e4fbff;
 }
-
-
