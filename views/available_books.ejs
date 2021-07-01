@@ -83,10 +83,14 @@
             <form action="available_books" method="post">
                 <select class="form-select" aria-label="Default select example" name="category">
                     <option selected>Select Category</option>
-                    <option value="CSE">CSE</option>
-                    <option value="ISE">ISE</option>
-                    <option value="ECE">ECE</option>
-                    <option value="All">All</option>
+                    <% for(let i=0 ; i<options.length ; i++) {%>
+                        <% if(typeof options[i]!="undefined" ) { %>
+
+                            <option value=`<%=options[i].category %>` ><%= options[i].category %>
+                            </option>
+                            <% } %>
+                                <% } %>
+                                    <option value="All">All</option>
                 </select>
                 <button type="submit" class="btn btn-color" id="log-btn">Select</button>
             </form>

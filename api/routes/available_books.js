@@ -19,7 +19,14 @@ router.get("/", function (req, res) {
       con.query(`select * from available_books;`, function (err, result) {
         let r = JSON.parse(JSON.stringify(result));
 
-        res.render("available_books", { booksData: r });
+        con.query(
+          `SELECT distinct category from available_books;`,
+          function (err, result) {
+            if (err) throw err;
+            let category = JSON.parse(JSON.stringify(result));
+            res.render("available_books", { booksData: r, options: category });
+          }
+        );
       });
     } else {
       var htmlContent = `<h1>Please login as a user to view this page</h1>`;
@@ -29,12 +36,13 @@ router.get("/", function (req, res) {
 });
 
 router.post("/", function (req, res) {
-  const category = req.body.category;
+  let i = req.body.category;
+  let category = i.substring(1, i.length - 1);
 
   if (category === "All") {
     var sql = `SELECT * FROM available_books ;`;
   } else {
-    var sql = `SELECT * FROM available_books WHERE category = '${category}' ;`;
+    var sql = `SELECT * FROM available_books WHERE category = '${category}';`;
   }
 
   con.on("error", function (err) {
@@ -42,8 +50,14 @@ router.post("/", function (req, res) {
   });
   con.query(sql, function (err, result) {
     let r = JSON.parse(JSON.stringify(result));
-
-    res.render("available_books", { booksData: r });
+    con.query(
+      `SELECT distinct category from available_books;`,
+      function (err, result) {
+        if (err) throw err;
+        let category = JSON.parse(JSON.stringify(result));
+        res.render("available_books", { booksData: r, options: category });
+      }
+    );
   });
 });
 
