@@ -42,7 +42,7 @@ router.post(
                 if (result === true) {
                   var data = JSON.stringify(r[0]);
                   fs.writeFileSync("views\\config\\user-data.json", data);
-                  res.redirect("/available_books");
+                  res.redirect("/available_books_admin");
                 } else {
                   res.render("admin_login", {
                     msg: "Login failed. Invalid password or email",

@@ -14,6 +14,7 @@ const studentRegistrationRoute = require("./api/routes/student_registration");
 const logoutRoute = require("./api/routes/logout");
 const issueRoute = require("./api/routes/issue");
 const issuedBooksRoute = require("./api/routes/issued_books");
+const availableBooksAdminRoute = require("./api/routes/available_books_admin");
 
 app.use(express.static(staticPath));
 app.use(express.urlencoded());
@@ -30,6 +31,7 @@ app.use("/available_books", availableBooksRoute);
 app.use("/logout", logoutRoute);
 app.use("/issue", issueRoute);
 app.use("/issued_books", issuedBooksRoute);
+app.use("/available_books_admin", availableBooksAdminRoute);
 
 app.get("*", function (req, res) {
   res.render("404");
