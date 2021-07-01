@@ -62,27 +62,47 @@ router.post(
             if (err) throw err;
             var books_data = JSON.parse(JSON.stringify(result));
 
-            console.log(user_data.user_id);
-            console.log(books_data[0]);
-
-            if (books_data[0].quantity > 0) {
-              var sql = ` INSERT INTO issued_books (isbn , user_id) VALUES  (${books_data[0].isbn} , ${user_data.user_id});commit;`;
-              con.query(sql, function (err, result) {
-                if (err) throw err;
-                console.log("Inserted into issued books");
+            if (books_data.length === 0) {
+              res.render("issue", {
+                altmsg: `There is no book with the isbn of ${isbn}`,
               });
-
-              var sqlUpdate = `UPDATE available_books SET quantity = ${
-                books_data[0].quantity - 1
-              } WHERE isbn = ${books_data[0].isbn} ;`;
-              con.query(sqlUpdate, function (err, result) {
-                if (err) throw err;
-                console.log("Updated available books");
-              });
-
-              res.render("issue", { msg: "Book Issued successfully" });
             } else {
-              res.render("issue", { altmsg: "This book is unavailable" });
+              if (books_data[0].quantity > 0) {
+                con.query(
+                  `SELECT * FROM issued_books WHERE isbn = ${isbn} AND user_id = ${user_data.user_id}`,
+                  function (err, result) {
+                    if (err) throw err;
+                    var books_ = JSON.parse(JSON.stringify(result));
+
+                    if (books_.length === 0) {
+                      var sql = ` INSERT INTO issued_books (isbn , user_id) VALUES  (${books_data[0].isbn} , ${user_data.user_id});commit;`;
+                      con.query(sql, function (err, result) {
+                        if (err) throw err;
+                        console.log("Inserted into issued books");
+                      });
+
+                      var sqlUpdate = `UPDATE available_books SET quantity = ${
+                        books_data[0].quantity - 1
+                      } WHERE isbn = ${books_data[0].isbn} ;`;
+                      con.query(sqlUpdate, function (err, result) {
+                        if (err) throw err;
+                        console.log("Updated available books");
+                      });
+
+                      res.render("issue", { msg: "Book Issued successfully" });
+                    } else {
+                      res.render("issue", {
+                        altmsg: "You have already issued this book.",
+                      });
+                    }
+                  }
+                );
+              } else {
+                res.render("issue", {
+                  altmsg:
+                    "This book is unavailable in the library. Please check after some time.",
+                });
+              }
             }
           }
         );
