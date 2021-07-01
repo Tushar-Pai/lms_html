@@ -16,7 +16,7 @@ router.get("/", function (req, res) {
     ) {
       res.render("add_books_admin");
     } else {
-      var htmlContent = `<h1>Please login as a user to view this page</h1>`;
+      var htmlContent = `<h1>Please login as a admin to view this page</h1>`;
       res.send(htmlContent);
     }
   });
