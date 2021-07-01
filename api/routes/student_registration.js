@@ -60,7 +60,7 @@ router.post(
                 console.log("[mysql error]", err);
               });
               con.query(
-                `INSERT INTO student_registration(user_name, user_email, user_password) VALUES ('${username}', '${email}', '${hash}');commit;`,
+                `INSERT INTO student_registration(user_name, user_email, user_password, isAdmin) VALUES ('${username}', '${email}', '${hash}', 0);commit;`,
                 function (err, result) {
                   if (err) throw err;
                   console.log("values inserted");

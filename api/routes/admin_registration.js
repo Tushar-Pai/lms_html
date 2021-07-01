@@ -58,7 +58,7 @@ router.post(
               });
 
               con.query(
-                `INSERT INTO admin_registration(admin_name, admin_email, admin_password) VALUES ('${adminname}', '${email}', '${hash}');commit;`,
+                `INSERT INTO admin_registration(admin_name, admin_email, admin_password, isAdmin) VALUES ('${adminname}', '${email}', '${hash}', 1);commit;`,
                 function (err, result) {
                   if (err) throw err;
                   console.log("values inserted");

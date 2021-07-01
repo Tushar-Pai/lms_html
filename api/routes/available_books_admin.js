@@ -5,9 +5,15 @@ const router = express.Router();
 
 router.get("/", function (req, res) {
   fs.readFile("views\\config\\user-data.json", (err, data) => {
-    let user_data = JSON.parse(data);
+    if (data.length != 0) {
+      var user_data = JSON.parse(data);
+    }
 
-    if (data.length != 0 && user_data.isAdmin === 1) {
+    if (
+      data.length != 0 &&
+      user_data.isAdmin === 1 &&
+      typeof user_data.isAdmin != "undefined"
+    ) {
       con.on("error", function (err) {
         console.log("[mysql error]", err);
       });

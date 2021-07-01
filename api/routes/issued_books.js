@@ -6,8 +6,14 @@ const { body, validationResult } = require("express-validator");
 
 router.get("/", function (req, res) {
   fs.readFile("views\\config\\user-data.json", (error, data) => {
-    let user_data = JSON.parse(data);
-    if (data.length != 0 && user_data.isAdmin === 0) {
+    if (data.length != 0) {
+      var user_data = JSON.parse(data);
+    }
+    if (
+      data.length != 0 &&
+      user_data.isAdmin === 0 &&
+      typeof user_data.isAdmin != "undefined"
+    ) {
       if (error) {
         console.error(error);
         return;
@@ -26,8 +32,7 @@ router.get("/", function (req, res) {
         res.render("issued_books", { booksData: r });
       });
     } else {
-      var htmlContent = `<h1>Please login as a user to view this page</h1> 
-            <button><a  href="/student_login" style="text-decoration: none;color:black">Login</a></button>`;
+      var htmlContent = `<h1>Please login as a user to view this page</h1>`;
       res.send(htmlContent);
     }
   });
