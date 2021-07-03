@@ -8,9 +8,10 @@ router.get("/", function (req, res) {
     if (data.length != 0) {
       var user_data = JSON.parse(data);
     }
+
     if (
       data.length != 0 &&
-      user_data.isAdmin === 0 &&
+      user_data.isAdmin === 1 &&
       typeof user_data.isAdmin != "undefined"
     ) {
       con.on("error", function (err) {
@@ -18,18 +19,20 @@ router.get("/", function (req, res) {
       });
       con.query(`select * from available_books;`, function (err, result) {
         let r = JSON.parse(JSON.stringify(result));
-
         con.query(
           `SELECT distinct category from available_books;`,
           function (err, result) {
             if (err) throw err;
             let category = JSON.parse(JSON.stringify(result));
-            res.render("available_books", { booksData: r, options: category });
+            res.render("available_books_admin", {
+              booksData: r,
+              options: category,
+            });
           }
         );
       });
     } else {
-      var htmlContent = `<h1>Please login as a user to view this page</h1>`;
+      var htmlContent = `<h1>Please login as an admin to view this page</h1> `;
       res.send(htmlContent);
     }
   });
@@ -42,7 +45,7 @@ router.post("/", function (req, res) {
   if (category === "All") {
     var sql = `SELECT * FROM available_books ;`;
   } else {
-    var sql = `SELECT * FROM available_books WHERE category = '${category}';`;
+    var sql = `SELECT * FROM available_books WHERE category = '${category}' ;`;
   }
 
   con.on("error", function (err) {
@@ -55,7 +58,10 @@ router.post("/", function (req, res) {
       function (err, result) {
         if (err) throw err;
         let category = JSON.parse(JSON.stringify(result));
-        res.render("available_books", { booksData: r, options: category });
+        res.render("available_books_admin", {
+          booksData: r,
+          options: category,
+        });
       }
     );
   });

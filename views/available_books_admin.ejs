@@ -53,20 +53,15 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav  ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/available_books">Available
+                                <a class="nav-link active" aria-current="page" href="/available_books_admin">Available
                                     books</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/issue">Issue Books</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/issued_books">Books Issued</a>
+                                <a class="nav-link" href="/add_books_admin">Add books</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link " href="/logout">Logout</a>
                             </li>
-
-
                         </ul>
 
                     </div>
@@ -80,13 +75,13 @@
     <section id="category-form">
         <h3>Available Books</h3>
         <div class="container-nav-form">
-            <form action="available_books" method="post">
+            <form action="/available_books_admin" method="post">
                 <select class="form-select" aria-label="Default select example" name="category">
                     <option selected>Select Category</option>
                     <% for(let i=0 ; i<options.length ; i++) {%>
                         <% if(typeof options[i]!="undefined" ) { %>
 
-                            <option value=`<%=options[i].category %>` ><%= options[i].category %>
+                            <option value=`<%=options[i].category %>` > <%= options[i].category %>
                             </option>
                             <% } %>
                                 <% } %>

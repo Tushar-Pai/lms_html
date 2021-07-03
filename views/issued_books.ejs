@@ -81,95 +81,130 @@
 
     <section id="book_cards">
         <div class="container-nav-cards">
+            <% if(typeof msg !='undefined' ) { %>
 
-            <% if(typeof booksData !='undefined' ) {%>
-                <h3 style="text-align: center; margin-bottom: 4%;">Issued Books</h3>
-                <% for(let i=0; i<=booksData.length ; i+=2) {%>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <%= msg %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
 
-                    <div class="row">
-                        <% if(typeof booksData[i]!='undefined' ) { %>
-                            <div class="col-lg-6">
+                <% } %>
+                    <% if(typeof altmsg !='undefined' ) { %>
 
-                                <div class="card ">
-                                    <h5 class="card-header">
-                                        <%= booksData[i].book_title %>
-                                    </h5>
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <strong> ISBN : </strong>
-                                            <%= booksData[i].isbn %>
-                                        </p>
-                                        <p class="card-text">
-                                            <strong> Writtern by : </strong>
-                                            <%= booksData[i].author_name %>
-                                        </p>
-                                        <p class="card-text">
-                                            <strong> Price : </strong>
-                                            <%= booksData[i].price %>
-                                        </p>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <%= altmsg %>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                        </div>
+
+                        <% } %>
+
+                            <% if(typeof booksData !='undefined' ) {%>
+                                <h3 style="text-align: center; margin-bottom: 4%;">Issued Books</h3>
+                                <% for(let i=0; i<=booksData.length ; i+=2) {%>
+
+                                    <div class="row">
+                                        <% if(typeof booksData[i]!='undefined' ) { %>
+                                            <div class="col-lg-6">
+
+                                                <div class="card ">
+                                                    <h5 class="card-header">
+                                                        <%= booksData[i].book_title %>
+                                                    </h5>
+                                                    <div class="card-body">
+                                                        <p class="card-text" name="isbn">
+                                                            <strong> ISBN : </strong>
+                                                            <%= booksData[i].isbn %>
+                                                        </p>
+                                                        <p class="card-text">
+                                                            <strong> Writtern by : </strong>
+                                                            <%= booksData[i].author_name %>
+                                                        </p>
+                                                        <p class="card-text">
+                                                            <strong> Price : </strong>
+                                                            <%= booksData[i].price %>
+                                                        </p>
 
 
-                                    </div>
-                                </div>
-                            </div>
-                            <% } %>
-                                <% if(typeof booksData[i+1]!='undefined' ) { %>
-                                    <div class="col-lg-6">
-                                        <div class="card ">
-                                            <h5 class="card-header">
-                                                <%= booksData[i+1].book_title %>
-                                            </h5>
-                                            <div class="card-body">
-                                                <p class="card-text">
-                                                    <strong> ISBN :</strong>
-                                                    <%= booksData[i+1].isbn %>
-                                                </p>
-                                                <p class="card-text">
-                                                    <strong> Writtern by : </strong>
-                                                    <%= booksData[i+1].author_name %>
-                                                </p>
-                                                <p class="card-text">
-                                                    <strong> Price : </strong>
-                                                    <%= booksData[i+1].price %>
-                                                </p>
-
+                                                    </div>
+                                                </div>
 
                                             </div>
-                                        </div>
+                                            <% } %>
+                                                <% if(typeof booksData[i+1]!='undefined' ) { %>
+                                                    <div class="col-lg-6">
+
+                                                        <div class="card ">
+                                                            <h5 class="card-header">
+                                                                <%= booksData[i+1].book_title %>
+                                                            </h5>
+                                                            <div class="card-body">
+                                                                <p class="card-text" name="isbn">
+                                                                    <strong> ISBN :</strong>
+                                                                    <%= booksData[i+1].isbn %>
+                                                                </p>
+                                                                <p class="card-text">
+                                                                    <strong> Writtern by : </strong>
+                                                                    <%= booksData[i+1].author_name %>
+                                                                </p>
+                                                                <p class="card-text">
+                                                                    <strong> Price : </strong>
+                                                                    <%= booksData[i+1].price %>
+                                                                </p>
+
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <% } %>
                                     </div>
                                     <% } %>
-                    </div>
-                    <% } %>
-                        <% }else{ %>
 
-                            <h3 style="text-align: center;margin-top: 20%;">No books are issued</h3>
-
-                            <% } %>
-                                <br><br><br>
-                                <!--     
-    <footer>
-        <br>
-        <p style="text-align: center;"><a href="index.html" style="color: white;"><span
-                    class="glyphicon glyphicon-arrow-up" style="color: rgb(124, 191, 223);"></span> Back to top</a>
-        </p>
-        <p>
-            &nbsp&nbsp&nbsp<span class="glyphicon glyphicon-link" style="color: rgb(124, 191, 223);"></span> <a href=""
-                style="color: white;text-decoration: none;">facebook</a><br>
-            &nbsp&nbsp&nbsp<span class="glyphicon glyphicon-link" style="color: rgb(124, 191, 223);"></span> <a href=""
-                style="color: white;text-decoration: none;">instagram</a><br>
-            &nbsp&nbsp&nbsp<span class="glyphicon glyphicon-link" style="color: rgb(124, 191, 223);"></span> <a href=""
-                style="color: white;text-decoration: none;">twitter</a>
-        </p>
-        <p style="text-align: center;color: white;font-size: 11px;">PrivacyPolicies.com © 2002 - 2021 All rights
-            reserved</p>
-    </footer> -->
+                                        <section id="return-books">
 
 
-                                <!-- Bootstrap JS bundle-->
-                                <script
-                                    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-                                    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-                                    crossorigin="anonymous"></script>
+
+                                            <h3>Return Book</h3>
+                                            <br>
+
+                                            <% if(typeof alert !='undefined' ) { %>
+                                                <% alert.forEach(function(error) { %>
+                                                    <div class="alert alert-danger alert-dismissible fade show"
+                                                        role="alert">
+                                                        <%= error.msg %>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                    <% }) %>
+                                                        <% } %>
+                                                            <form action="/issued_books" method="POST">
+                                                                <div class="form-group">
+                                                                    <label for="isbn" id="isbn-lable"> ISBN </label>
+                                                                    <input type="number" class="form-control"
+                                                                        name="isbn" id="isbn"
+                                                                        placeholder="Enter ISBN of the book to be returned">
+
+                                                                </div>
+
+                                                                <button type="submit"
+                                                                    class="btn card-btn">Submit</button>
+                                                            </form>
+                                        </section>
+                                        <% }else{ %>
+
+                                            <h3 style="text-align: center;margin-top: 20%;">No books are issued</h3>
+
+                                            <% } %>
+                                                <br><br><br>
+
+
+
+                                                <!-- Bootstrap JS bundle-->
+                                                <script
+                                                    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+                                                    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+                                                    crossorigin="anonymous"></script>
 </body>
 
 </html>
