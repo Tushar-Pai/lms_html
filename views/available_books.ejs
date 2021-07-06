@@ -32,7 +32,7 @@
 
 
     <!-- Our custom stylesheet -->
-    <link rel="stylesheet" href="./CSS/available_books.css">
+    <link rel="stylesheet" href="/CSS/available_books.css">
 </head>
 
 <body>
@@ -76,26 +76,42 @@
         </div>
 
     </header>
-
     <section id="category-form">
         <h3>Available Books</h3>
-        <div class="container-nav-form">
-            <form action="available_books" method="post">
-                <select class="form-select" aria-label="Default select example" name="category">
-                    <option selected>Select Category</option>
-                    <% for(let i=0 ; i<options.length ; i++) {%>
-                        <% if(typeof options[i]!="undefined" ) { %>
 
-                            <option value=`<%=options[i].category %>` ><%= options[i].category %>
-                            </option>
-                            <% } %>
-                                <% } %>
-                                    <option value="`All`">All</option>
-                </select>
-                <button type="submit" class="btn btn-color" id="log-btn">Select</button>
-            </form>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="container-nav-form">
+                        <form action="available_books" method="post">
+                            <select class="form-select" aria-label="Default select example" name="category">
+                                <option selected>Select Category</option>
+                                <% for(let i=0 ; i<options.length ; i++) {%>
+                                    <% if(typeof options[i]!="undefined" ) { %>
+            
+                                        <option value=`<%=options[i].category %>` ><%= options[i].category %>
+                                        </option>
+                                        <% } %>
+                                            <% } %>
+                                                <option value="`All`">All</option>
+                            </select>
+                            <button type="submit" class="btn btn-color" id="log-btn">Select</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="container-nav-form">
+                        <form action="/available_books/available_books_search" method="post">
+                            <div class="form-group">
+                                <input type="text" name="search_data" class="form-control" placeholder="Search">
+                            </div>
+                            <button type="submit" class="btn btn-color" id="log-btn">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
     </section>
 
     <section id="book_cards">

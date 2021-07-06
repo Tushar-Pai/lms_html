@@ -61,4 +61,48 @@ router.post("/", function (req, res) {
   });
 });
 
+router.post("/available_books_search", function (req, res) {
+  var sql = `SELECT * FROM available_books WHERE book_title LIKE '%${req.body.search_data}%';`;
+  con.query(sql,
+    function (err, result) {
+      if (err) throw err;
+      let search_result = JSON.parse(JSON.stringify(result));
+      con.query(
+        `SELECT distinct category from available_books;`,
+        function (err, result) {
+          if (err) throw err;
+          let category = JSON.parse(JSON.stringify(result));
+          res.render("available_books", { booksData: search_result, options: category });
+        }
+      );
+    }
+  );
+});
+
+router.post("/available_books", function (req, res) {
+  let i = req.body.category;
+  let category = i.substring(1, i.length - 1);
+
+  if (category === "All") {
+    var sql = `SELECT * FROM available_books ;`;
+  } else {
+    var sql = `SELECT * FROM available_books WHERE category = '${category}';`;
+  }
+
+  con.on("error", function (err) {
+    console.log("[mysql error]", err);
+  });
+  con.query(sql, function (err, result) {
+    let r = JSON.parse(JSON.stringify(result));
+    con.query(
+      `SELECT distinct category from available_books;`,
+      function (err, result) {
+        if (err) throw err;
+        let category = JSON.parse(JSON.stringify(result));
+        res.render("available_books", { booksData: r, options: category });
+      }
+    );
+  });
+});
+
 module.exports = router;
